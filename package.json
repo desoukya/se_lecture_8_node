@@ -1,8 +1,12 @@
 {
   "name": "weather-microservice",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
