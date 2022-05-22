@@ -5,8 +5,8 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
