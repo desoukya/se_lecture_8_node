@@ -1,0 +1,13 @@
+{
+  "name": "weather-microservice",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0"
+  }
+}
