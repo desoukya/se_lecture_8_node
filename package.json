@@ -2,7 +2,7 @@
   "name": "weather-microservice",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
