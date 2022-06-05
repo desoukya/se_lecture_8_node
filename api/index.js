@@ -3,9 +3,9 @@ const bodyParser = require('body-parser')
 const express = require('express');
 const axios = require('axios');
 const { uuid } = require('uuidv4');
-const { mongoClient } = require('./mongo');
+const { mongoClient } = require('../mongo');
 // const products = require('./products.json');
-const products = require('./test_products.json');
+const products = require('../test_products.json');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,7 +17,7 @@ app.all('*', function(req, res, next) {
   next();
 });
 
-app.get('/', async (req,res) => {
+app.get('/api', async (req,res) => {
   const db = await mongoClient();
   if (!db) res.status(500).send('Systems Unavailable');
 
@@ -27,11 +27,11 @@ app.get('/', async (req,res) => {
   return res.send(data);
 });
 
-app.get('/products', async (req,res) => {
+app.get('/api/products', async (req,res) => {
   return res.json(products);
 });
 
-app.post('/orders', async (req,res) => {
+app.post('/api/orders', async (req,res) => {
   const db = await mongoClient();
   if (!db) res.status(500).send('Systems Unavailable');
 
@@ -46,7 +46,7 @@ app.post('/orders', async (req,res) => {
   return res.send(newOrder);
 });
 
-app.get('/products/:id', async (req,res) => {
+app.get('/api/products/:id', async (req,res) => {
   const product = products.filter(({ id }) => req.params.id === id);
   return res.json(product.length ? product.shift() : product);
 });
